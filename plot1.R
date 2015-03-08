@@ -1,14 +1,14 @@
 
 
 ## read in data
-if (!exists("data")) {
+if (!exists("mydata")) {
 	print("reading data...")
 	data <- read.table("household_power_consumption.txt", header=TRUE, sep=";")	
 	print("done reading data.")
 }
 
-## get subset of data for 1/2/2007 - 2/2/2007
-datasub <- data[data$Date %in% c("1/2/2007", "2/2/2007") , ]
+## get subset of mydata for 1/2/2007 - 2/2/2007
+datasub <- mydata[mydata$Date %in% c("1/2/2007", "2/2/2007") , ]
 
 ## add column of datetime
 datasub <- transform(datasub, datetime = paste(Date, Time))
